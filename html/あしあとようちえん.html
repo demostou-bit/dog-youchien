@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>あしあとようちえん｜ちいさな一歩、ずっと寄り添う。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* カラー定義 */
+  --color-primary: #5A7C5B;
+  --color-primary-dark: #4A6B4B;
+  --color-primary-light: #7A9C7B;
+  --color-accent: #C4A882;
+  --color-accent-light: #D4C4A8;
+  --color-accent-dark: #A88B6A;
+  --color-highlight: #D4A843;
+  --color-highlight-light: #E4C06A;
+  --color-highlight-dark: #B08A2F;
+  --color-white: #FFFFFF;
+  --color-cream: #F8F5F0;
+  --color-light-gray: #F0EDE8;
+  --color-text: #4A4540;
+  --color-text-light: #7A7568;
+
+  /* フォント定義 */
+  --font-heading: 'M PLUS Rounded 1c', "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-body: 'Noto Sans JP', "Hiragino Sans", "Yu Gothic", sans-serif;
+
+  /* 余白・共通設定 */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 8px rgba(74, 69, 64, 0.08);
+  --shadow-md: 0 4px 16px rgba(74, 69, 64, 0.12);
+  --shadow-lg: 0 8px 32px rgba(74, 69, 64, 0.16);
+  --line: rgba(74, 69, 64, 0.12);
+}
+
+/* 全体リセット・ベーススタイル */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-cream);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* 汎用レイアウト */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+.section {
+  padding: var(--space-lg) 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: var(--space-md);
+  color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--color-highlight);
+  border-radius: 2px;
+  margin: var(--space-xs) auto 0;
+}
+
+/* ヘッダー */
+.site-header {
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xs) var(--space-sm);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: var(--space-md);
+}
+
+.main-nav a {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--color-highlight);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--color-primary);
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ヒーローセクション */
+.hero {
+  min-height: 80vh;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-lg) var(--space-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 45c-5 0-10-5-10-10s5-10 10-10 10 5 10 10-5 10-10 10zm40 0c-5 0-10-5-10-10s5-10 10-10 10 5 10 10-5 10-10 10zm-50 15c-3 0-6-3-6-6s3-6 6-6 6 3 6 6-3 6-6 6zm60 0c-3 0-6-3-6-6s3-6 6-6 6 3 6 6-3 6-6 6zM50 70c-10 0-18-8-18-18s8-18 18-18 18 8 18 18-8 18-18 18z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E") repeat;
+  opacity: 0.3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+h1.hero-concept {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0;
+  line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+h2.hero-concept {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #e8f5e9;
+  margin-bottom: var(--space-md);
+  line-height: 1.4;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: var(--space-md);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-highlight);
+  color: var(--color-white);
+  box-shadow: 0 4px 16px rgba(212, 168, 67, 0.4);
+}
+
+.btn-primary:hover {
+  background: var(--color-highlight-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 168, 67, 0.5);
+}
+
+/* ようちえんについて */
+.about {
+  background: var(--color-white);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.about-image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--color-light-gray);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+}
+
+.about-text h3 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.about-text p {
+  margin-bottom: var(--space-sm);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.4rem 1rem;
+  background: var(--color-cream);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.tag::before {
+  content: '🐾';
+  font-size: 0.8rem;
+}
+
+/* 3つの特徴 */
+.features {
+  background: var(--color-cream);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.feature-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-sm);
+  background: var(--color-primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.feature-card h3 {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.feature-card p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+/* 年齢別プログラム */
+.programs {
+  background: var(--color-white);
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.program-card {
+  background: var(--color-cream);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.program-image {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: var(--color-light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+  overflow: hidden;
+}
+
+.program-info {
+  padding: var(--space-sm);
+}
+
+.program-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+.badge-puppy { background: var(--color-highlight-light); color: var(--color-highlight-dark); }
+.badge-adult { background: var(--color-primary-light); color: var(--color-primary-dark); }
+.badge-senior { background: var(--color-accent-light); color: var(--color-accent-dark); }
+
+.program-info h3 {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.program-info p {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+/* 一日の流れ */
+.schedule {
+  background: var(--color-cream);
+}
+
+.schedule-timeline {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.schedule-timeline::before {
+  content: '';
+  position: absolute;
+  left: 100px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.schedule-item {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+  position: relative;
+}
+
+.schedule-time {
+  width: 80px;
+  text-align: right;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.schedule-content {
+  flex: 1;
+  background: var(--color-white);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.schedule-content::before {
+  content: '🐾';
+  position: absolute;
+  left: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+}
+
+.schedule-content h4 {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.schedule-content p {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+/* 入園案内・料金 */
+.admission {
+  background: var(--color-white);
+}
+
+.price-table-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--color-cream);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.price-table th, .price-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-accent-light);
+}
+
+.price-table th {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  background: var(--color-white);
+}
+
+.price-table td:last-child {
+  font-weight: 700;
+  color: var(--color-highlight-dark);
+  text-align: right;
+}
+
+.price-note {
+  text-align: center;
+  margin-top: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+/* お問い合わせ */
+.contact {
+  background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-white) 100%);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.contact-form-wrap {
+  background: var(--color-white);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.form-group {
+  margin-bottom: var(--space-sm);
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-light-gray);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background: var(--color-white);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.info-card {
+  background: var(--color-white);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.info-card h3 {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.info-card p {
+  color: var(--color-text-light);
+}
+
+.phone-number {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--color-highlight);
+  font-weight: 700;
+}
+
+.map-placeholder {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: var(--color-light-gray);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+  margin-top: var(--space-xs);
+}
+
+/* フッター */
+.site-footer {
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  padding: var(--space-md) 0 var(--space-sm);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+.footer-nav ul {
+  list-style: none;
+}
+
+.footer-nav a {
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  padding: 0.25rem 0;
+}
+
+.footer-nav a:hover {
+  color: var(--color-white);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: var(--space-sm);
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .hero-concept { font-size: 2rem; }
+  .about-content, .features-grid, .programs-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-sm);
+  }
+  .main-nav.active { display: block; }
+  .main-nav ul { flex-direction: column; gap: var(--space-sm); }
+  .menu-toggle { display: block; }
+  .schedule-timeline::before { left: 70px; }
+  .schedule-time { width: 50px; font-size: 0.9rem; }
+  .section-title { font-size: 1.5rem; }
+}
+
+/* 印刷用スタイル */
+@media print {
+  .site-header, .main-nav, .menu-toggle, .contact-form-wrap, .btn { display: none !important; }
+  .hero { min-height: auto; padding: var(--space-md) 0; }
+  .hero-concept { font-size: 1.8rem; color: var(--color-text) !important; text-shadow: none !important; }
+  body { background: white !important; color: black !important; }
+  .section { padding: var(--space-sm) 0; page-break-inside: avoid; }
+  .feature-card, .program-card { box-shadow: none !important; border: 1px solid #ddd; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="site-logo">
+      <span>🐾</span> あしあとようちえん
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#about">ようちえんについて</a></li>
+        <li><a href="#features">3つの特徴</a></li>
+        <li><a href="#programs">年齢別プログラム</a></li>
+        <li><a href="#schedule">一日の流れ</a></li>
+        <li><a href="#admission">入園案内</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-concept">あしあとようちえん</h1>
+      <h2 class="hero-concept">ちいさな一歩、ずっと寄り添う。</h2>
+      <p class="hero-subtitle">パピーからシニアまで、どんな年齢のわんちゃんも大切に預かる、在宅型の犬専門ようちえんです。自然に囲まれた環境で、それぞれのペースで過ごす毎日を。</p>
+      <a href="#contact" class="btn btn-primary">
+        <span>🐾</span> 見学のご予約はこちら
+      </a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section-title">ようちえんについて</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <span>📷 画像を設定してください</span>
+        </div>
+        <div class="about-text">
+          <h3>パピーからシニアまで預かる<br>在宅型保育園</h3>
+          <p>「あしあとようちえん」は、ご家庭のような温かみのある環境で、愛犬の成長をサポートする在宅型保育園です。少人数制で一人ひとりに寄り添ったケアを大切にしています。</p>
+          <p>自然素材の遊具や安全な庭での遊びを通じて、犬たちがのびのびと過ごせる空間をご用意しています。</p>
+          <div class="tag-list">
+            <span class="tag">少人数制</span>
+            <span class="tag">送迎サービス</span>
+            <span class="tag">自然素材の遊具</span>
+            <span class="tag">個別ケア</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section features" id="features">
+    <div class="container">
+      <h2 class="section-title">3つの特徴</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🐕</div>
+          <h3>年齢に合わせた個別ケア</h3>
+          <p>パピー・アダルト・シニア、それぞれの年齢に合わせた専門的なケアプログラムを提供します。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌿</div>
+          <h3>自然に囲まれた庭遊び</h3>
+          <p>広々とした自然素材の庭で、犬たちが思いっきり遊べる環境を整えています。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📔</div>
+          <h3>毎日の「あしあと日記」</h3>
+          <p>お預かり中の様子を写真とともに「あしあと日記」としてお届けします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="section programs" id="programs">
+    <div class="container">
+      <h2 class="section-title">年齢別プログラム</h2>
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-image"><span>📷 パピークラス画像</span></div>
+          <div class="program-info">
+            <span class="program-badge badge-puppy">パピークラス</span>
+            <p>生後3ヶ月〜1歳未満の子犬向け。社会化・トイレトレーニングなど基礎からサポート。</p>
+          </div>
+        </div>
+        <div class="program-card">
+          <div class="program-image"><span>📷 アダルトクラス画像</span></div>
+          <div class="program-info">
+            <span class="program-badge badge-adult">アダルトクラス</span>
+            <p>1歳〜7歳の成犬向け。運動不足解消・社会化の維持・遊びを通じたストレス解消。</p>
+          </div>
+        </div>
+        <div class="program-card">
+          <div class="program-image"><span>📷 シニアクラス画像</span></div>
+          <div class="program-info">
+            <span class="program-badge badge-senior">シニアクラス</span>
+            <p>7歳以上のシニア犬向け。無理のない運動・健康チェック・リラクゼーションを重視。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section class="section schedule" id="schedule">
+    <div class="container">
+      <h2 class="section-title">一日の流れ</h2>
+      <div class="schedule-timeline">
+        <div class="schedule-item">
+          <div class="schedule-time">8:00</div>
+          <div class="schedule-content">
+            <h4>お迎え・健康チェック</h4>
+            <p>送迎またはご家族によるお迎え。体温・元気・食欲の確認を行います。</p>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">9:00</div>
+          <div class="schedule-content">
+            <h4>朝の自由遊び</h4>
+            <p>庭や室内での自由遊び時間。犬同士の社会化も促進します。</p>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">10:30</div>
+          <div class="schedule-content">
+            <h4>プログラム別ケア</h4>
+            <p>年齢に合わせたトレーニング・運動・リラクゼーションを実施します。</p>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">12:00</div>
+          <div class="schedule-content">
+            <h4>ランチ・おやつタイム</h4>
+            <p>ご家庭からの食事に合わせて給餌。食後の休息も大切にします。</p>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">13:30</div>
+          <div class="schedule-content">
+            <h4>午後のお昼寝・休息</h4>
+            <p>静かな環境でお昼寝。必要に応じて個別ケアも行います。</p>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">15:00</div>
+          <div class="schedule-content">
+            <h4>午後の遊び・散歩</h4>
+            <p>庭での遊びや近隣の散歩。天候に合わせて室内遊びも行います。</p>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">17:00</div>
+          <div class="schedule-content">
+            <h4>夕方の自由時間</h4>
+            <p>のんびり過ごす時間。あしあと日記の準備も行います。</p>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-time">18:00</div>
+          <div class="schedule-content">
+            <h4>お帰り・送迎</h4>
+            <p>ご家族のお迎えまたは送迎サービスでお帰りになります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admission -->
+  <section class="section admission" id="admission">
+    <div class="container">
+      <h2 class="section-title">入園案内</h2>
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>料金（税込）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>入会金</td>
+              <td>15,000円</td>
+            </tr>
+            <tr>
+              <td>月会費（パピー/アダルト）</td>
+              <td>55,000円</td>
+            </tr>
+            <tr>
+              <td>月会費（シニア）</td>
+              <td>48,000円</td>
+            </tr>
+            <tr>
+              <td>送迎サービス（往復）</td>
+              <td>3,000円〜</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="price-note">※ 詳細な料金やオプションについてはお問い合わせください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">お問い合わせ</h2>
+      <div class="contact-grid">
+        <div class="contact-form-wrap">
+          <h3 style="font-family: var(--font-heading); color: var(--color-primary); margin-bottom: var(--space-sm);">見学予約フォーム</h3>
+          <form action="#" method="post" onsubmit="event.preventDefault(); alert('デモフォームです。');">
+            <div class="form-group">
+              <label for="name">お名前 <span style="color: var(--color-highlight);">*</span></label>
+              <input type="text" id="name" name="name" required placeholder="山田 太郎">
+            </div>
+            <div class="form-group">
+              <label for="email">メールアドレス <span style="color: var(--color-highlight);">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="example@email.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">電話番号</label>
+              <input type="tel" id="phone" name="phone" placeholder="03-1234-5678">
+            </div>
+            <div class="form-group">
+              <label for="dog_name">愛犬の名前・年齢</label>
+              <input type="text" id="dog_name" name="dog_name" placeholder="ポチ・2歳">
+            </div>
+            <div class="form-group">
+              <label for="message">メッセージ</label>
+              <textarea id="message" name="message" placeholder="見学希望日時やご質問など"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">送信する <span>🐾</span></button>
+          </form>
+        </div>
+        <div class="contact-info">
+          <div class="info-card">
+            <h3>📞 お電話でのお問い合わせ</h3>
+            <p class="phone-number">017-7xx-4321</p>
+            <p style="font-size: 0.9rem; color: var(--color-text-light);">受付時間：平日 8:00〜18:00</p>
+          </div>
+          <div class="info-card">
+            <h3>📍 アクセス</h3>
+            <p>〒030-0921 青森県青森市原別下海原xxx</p>
+            <div class="map-container" style="margin-top: var(--space-xs); overflow: hidden; border-radius: var(--radius-sm);">
+              <iframe 
+                src="https://maps.google.com/maps?q=%E3%80%92030-0921%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E9%9D%92%E6%A3%AE%E5%B8%82%E5%8E%9F%E5%88%A5%E4%B8%8B%E6%B5%B7%E5%8E%9F%EF%BC%92%EF%BC%91%EF%BC%91&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="250" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">🐾 あしあとようちえん</div>
+        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">パピーからシニアまで、愛犬の成長を見守る在宅型保育園</p>
+      </div>
+      <div>
+        <h4 style="font-family: var(--font-heading); margin-bottom: var(--space-xs);">メニュー</h4>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#about">ようちえんについて</a></li>
+            <li><a href="#features">3つの特徴</a></li>
+            <li><a href="#programs">年齢別プログラム</a></li>
+            <li><a href="#schedule">一日の流れ</a></li>
+            <li><a href="#admission">入園案内</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div>
+        <h4 style="font-family: var(--font-heading); margin-bottom: var(--space-xs);">お問い合わせ</h4>
+        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+          📞 03-1234-5678<br>
+          📍 東京都〇〇区〇〇1-2-3
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 あしあとようちえん All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // スマホ用ハンバーガーメニューの挙動
+  const menuToggle = document.getElementById('menuToggle');
+  const mainNav = document.getElementById('mainNav');
+
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+    });
+  }
+</script>
+</body>
+</html>

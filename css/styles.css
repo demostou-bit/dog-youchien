@@ -1,0 +1,671 @@
+/*
+Theme Name: いぬのようちえん
+Theme URI: https://example.com/dog-yochien
+Author: いぬのようちえん
+Description: 在宅型犬の保育園「いぬのようちえん」専用WordPressテーマ。アースカラーと肉球モチーフで温かみのあるデザイン。
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: dogyochien
+*/
+
+/* --------------------------------------------------
+ * 1. Variables & Base Styles
+ * -------------------------------------------------- */
+:root {
+    --color-primary: #5A7C5B;
+    --color-primary-dark: #4A6B4B;
+    --color-primary-light: #7A9C7B;
+
+    --color-accent: #C4A882;
+    --color-accent-light: #D4C4A8;
+    --color-accent-dark: #A88B6A;
+
+    /* 差し色：マスタードイエロー（テラコッタに変更したい場合は #C67D5F を有効化） */
+    --color-highlight: #D4A843;
+    /* --color-highlight: #C67D5F; */
+    --color-highlight-light: #E4C06A;
+    --color-highlight-dark: #B08A2F;
+
+    --color-white: #FFFFFF;
+    --color-cream: #F8F5F0;
+    --color-light-gray: #F0EDE8;
+    --color-text: #4A4540;
+    --color-text-light: #7A7568;
+
+    --font-heading: 'M PLUS Rounded 1c', sans-serif;
+    --font-body: 'Noto Sans JP', sans-serif;
+
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+
+    --shadow-sm: 0 2px 8px rgba(74, 69, 64, 0.08);
+    --shadow-md: 0 4px 16px rgba(74, 69, 64, 0.12);
+    --shadow-lg: 0 8px 32px rgba(74, 69, 64, 0.16);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-cream);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--color-primary); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--color-primary-dark); }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; line-height: 1.4; }
+
+/* --------------------------------------------------
+ * 2. Layout Components
+ * -------------------------------------------------- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-sm); }
+.section { padding: var(--space-lg) 0; }
+
+.section-title {
+    font-size: 2rem; text-align: center; margin-bottom: var(--space-md);
+    color: var(--color-primary); position: relative;
+    display: inline-block; left: 50%; transform: translateX(-50%);
+}
+.section-title::after {
+    content: ''; display: block; width: 60px; height: 4px;
+    background: var(--color-highlight); border-radius: 2px; margin: var(--space-xs) auto 0;
+}
+
+.btn {
+    display: inline-flex; align-items: center; gap: var(--space-xs);
+    padding: 1rem 2.5rem; border-radius: var(--radius-full);
+    font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem;
+    transition: all 0.3s ease; border: none; cursor: pointer;
+}
+.btn-primary {
+    background: var(--color-highlight); color: var(--color-white);
+    box-shadow: 0 4px 16px rgba(212, 168, 67, 0.4);
+}
+.btn-primary:hover {
+    background: var(--color-highlight-dark); color: var(--color-white);
+    transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212, 168, 67, 0.5);
+}
+
+/* --------------------------------------------------
+ * 3. Header
+ * -------------------------------------------------- */
+.site-header {
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    /* スクロール追従のために fixed に変更し、幅と位置を指定 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem var(--space-sm); /* パディングを適正に調整 */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.site-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.site-logo img {
+    /* 見切れを防ぐため、画像の高さを適正なサイズ（例: 50px〜60px程度）に縮小 */
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+.main-nav ul { 
+    display: flex; list-style: none;
+    gap: 1.25rem;
+}
+.main-nav a {
+    font-family: var(--font-heading); font-weight: 500; color: var(--color-text);
+    padding: 0.5rem 0; position: relative;
+    white-space: nowrap;
+}
+.main-nav a::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px;
+    background: var(--color-highlight); border-radius: 2px; transition: width 0.3s ease;
+}
+.main-nav a:hover::after { width: 100%; }
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: var(--space-xs); }
+.menu-toggle span { display: block; width: 24px; height: 3px; background: var(--color-primary); margin: 5px 0; border-radius: 2px; transition: 0.3s; }
+/* 固定ヘッダー分の余白確保 */
+main#main {
+    padding-top: 70px;
+}
+
+/* --------------------------------------------------
+ * 4. Hero Section
+ * -------------------------------------------------- */
+.hero {
+    min-height: 80vh;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: var(--space-lg) var(--space-sm); position: relative; overflow: hidden;
+}
+.hero::before {
+    content: ''; position: absolute; top: -10%; right: -10%; width: 400px; height: 400px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 45c-5 0-10-5-10-10s5-10 10-10 10 5 10 10-5 10-10 10zm40 0c-5 0-10-5-10-10s5-10 10-10 10 5 10 10-5 10-10 10zm-50 15c-3 0-6-3-6-6s3-6 6-6 6 3 6 6-3 6-6 6zm60 0c-3 0-6-3-6-6s3-6 6-6 6 3 6 6-3 6-6 6zM50 70c-10 0-18-8-18-18s8-18 18-18 18 8 18 18-8 18-18 18z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E") repeat; opacity: 0.3;
+}
+.hero-slideshow {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+}
+.hero-slideshow::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3); z-index: 1;
+}
+.hero-slide {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center; opacity: 0;
+    animation: heroFade 15s infinite;
+}
+.hero-slide:nth-child(1) { animation-delay: 0s; }
+.hero-slide:nth-child(2) { animation-delay: 5s; }
+.hero-slide:nth-child(3) { animation-delay: 10s; }
+
+@keyframes heroFade {
+    0%   { opacity: 0; }
+    10%  { opacity: 1; }
+    33%  { opacity: 1; }
+    43%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.hero-content {
+    position: relative; z-index: 2; text-align: left;
+    margin-left: 10%; margin-right: auto; max-width: 600px;
+}
+h1.hero-concept {
+    font-family: var(--font-heading); font-size: 3rem; font-weight: 700;
+    color: var(--color-white); margin-bottom: 0; line-height: 1.3;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+h2.hero-concept {
+    font-family: var(--font-heading); font-size: 1.8rem; font-weight: 600;
+    color: #e8f5e9; margin-bottom: var(--space-md); line-height: 1.4;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.hero-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: var(--space-md); }
+
+/* --------------------------------------------------
+ * 5. About
+ * -------------------------------------------------- */
+.about { background: var(--color-white); }
+.about-content { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); align-items: center; }
+.about-image {
+    border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md);
+    background: var(--color-light-gray); aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center; color: var(--color-text-light);
+}
+.about-image img { width: 100%; height: 100%; object-fit: cover; }
+.about-text h3 { font-size: 1.5rem; color: var(--color-primary); margin-bottom: var(--space-sm); }
+.about-text p { margin-bottom: var(--space-sm); }
+.tag-list { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: var(--space-sm); }
+.tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 0.4rem 1rem; background: var(--color-cream);
+    border: 2px solid var(--color-accent); border-radius: var(--radius-full);
+    font-size: 0.9rem; font-weight: 500; color: var(--color-text);
+}
+.tag::before { content: '🐾'; font-size: 0.8rem; }
+
+/* --------------------------------------------------
+ * 6. Features
+ * -------------------------------------------------- */
+.features { background: var(--color-cream); }
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+.feature-card {
+    background: var(--color-white); border-radius: var(--radius-md);
+    padding: var(--space-md); text-align: center; box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.feature-icon {
+    width: 80px; height: 80px; margin: 0 auto var(--space-sm);
+    background: var(--color-primary-light); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 2rem;
+}
+.feature-card h3 { font-size: 1.2rem; color: var(--color-primary); margin-bottom: var(--space-xs); }
+.feature-card p { color: var(--color-text-light); font-size: 0.95rem; }
+
+.feature-card-static { cursor: default; }
+.feature-card-static:hover { transform: none; box-shadow: none; }
+
+.feature-card-link { text-decoration: none; color: inherit; display: block; }
+.feature-card-link:hover { transform: translateY(-4px); }
+
+/* --------------------------------------------------
+ * 7. Programs
+ * -------------------------------------------------- */
+.programs { background: var(--color-white); }
+.programs-intro { padding-bottom: 5rem; }
+.programs-lead { text-align: center; margin-bottom: 4rem; }
+.programs-lead-title {
+    font-family: var(--font-heading); font-size: 1.8rem;
+    color: var(--color-primary); line-height: 1.6; margin-bottom: 1rem;
+}
+.programs-lead-text { color: var(--color-text-light); line-height: 1.8; }
+
+.step-grid {
+    display: flex; flex-direction: column; gap: 4rem;
+    max-width: 1000px; margin: 0 auto;
+}
+.step-item { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; }
+.step-item-reverse { direction: rtl; }
+.step-item-reverse > * { direction: ltr; }
+.step-image {
+    background: var(--color-bg, #f0f0f0); border-radius: 20px; overflow: hidden;
+    aspect-ratio: 4 / 3; display: flex; align-items: center;
+    justify-content: center; color: var(--color-text-light); font-size: 1.2rem;
+}
+.step-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.step-number {
+    display: inline-block; font-family: var(--font-heading); font-size: 2rem;
+    font-weight: 700; color: var(--color-secondary, #5A7C5B); margin-bottom: 0.5rem; line-height: 1;
+}
+.step-title { font-family: var(--font-heading); font-size: 1.3rem; color: var(--color-primary); margin-bottom: 1rem; }
+.step-text { color: var(--color-text); line-height: 1.8; }
+
+.programs-section-title {
+    text-align: center; font-family: var(--font-heading);
+    font-size: 1.5rem; color: var(--color-primary);
+    margin-top: 5rem; margin-bottom: 2rem;
+}
+
+.programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+.program-card {
+    background: var(--color-cream); border-radius: var(--radius-md); overflow: hidden;
+    box-shadow: var(--shadow-sm); transition: transform 0.3s ease;
+}
+.program-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.program-image {
+    width: 100%; aspect-ratio: 16/10; background: var(--color-light-gray);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--color-text-light); overflow: hidden;
+}
+.program-image img { width: 100%; height: 100%; object-fit: cover; }
+.program-info { padding: var(--space-sm); }
+.program-badge {
+    display: inline-block; padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700; margin-bottom: var(--space-xs);
+}
+.badge-puppy { background: var(--color-highlight-light); color: var(--color-highlight-dark); }
+.badge-adult { background: var(--color-primary-light); color: var(--color-primary-dark); }
+.badge-senior { background: var(--color-accent-light); color: var(--color-accent-dark); }
+.program-info h3 { font-size: 1.2rem; color: var(--color-text); margin-bottom: var(--space-xs); }
+.program-info p { font-size: 0.9rem; color: var(--color-text-light); }
+.program-age { margin-top: 0.5rem; font-size: 0.95rem; color: var(--color-text-light); text-align: center; }
+
+/* --------------------------------------------------
+ * 8. Schedule
+ * -------------------------------------------------- */
+.schedule { background: var(--color-cream); }
+.schedule-timeline { max-width: 700px; margin: 0 auto; position: relative; }
+.schedule-timeline::before {
+    content: ''; position: absolute; left: 100px; top: 0; bottom: 0;
+    width: 3px; background: var(--color-accent); border-radius: 2px;
+}
+.schedule-item { display: flex; gap: var(--space-md); margin-bottom: var(--space-sm); position: relative; }
+.schedule-time {
+    width: 80px; text-align: right; font-family: var(--font-heading);
+    font-weight: 700; color: var(--color-primary); font-size: 1.1rem; flex-shrink: 0;
+}
+.schedule-content {
+    flex: 1; background: var(--color-white); padding: var(--space-sm);
+    border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); position: relative;
+}
+.schedule-content::before {
+    content: '🐾'; position: absolute; left: -28px; top: 50%; transform: translateY(-50%); font-size: 1rem;
+}
+.schedule-content h4 { font-size: 1rem; color: var(--color-text); margin-bottom: 0.25rem; }
+.schedule-content p { font-size: 0.9rem; color: var(--color-text-light); }
+
+/* --------------------------------------------------
+ * 9. Admission & Price
+ * -------------------------------------------------- */
+.admission { background: var(--color-white); }
+.price-table-wrap {
+    max-width: 700px; margin: 0 auto; background: var(--color-cream);
+    border-radius: var(--radius-md); padding: var(--space-md); box-shadow: var(--shadow-sm);
+}
+.price-table { width: 100%; border-collapse: collapse; }
+.price-table th, .price-table td {
+    padding: 1rem; text-align: left; border-bottom: 1px solid var(--color-accent-light);
+}
+.price-table th {
+    font-family: var(--font-heading); color: var(--color-primary);
+    background: var(--color-white); border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+.price-table td:last-child { font-weight: 700; color: var(--color-highlight-dark); text-align: right; }
+.price-note { text-align: center; margin-top: var(--space-sm); font-size: 0.85rem; color: var(--color-text-light); }
+
+/* --------------------------------------------------
+ * 10. Contact Section
+ * -------------------------------------------------- */
+.contact { background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-white) 100%); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+.contact-form-wrap {
+    background: var(--color-white); padding: var(--space-md);
+    border-radius: var(--radius-md); box-shadow: var(--shadow-md);
+}
+.form-group { margin-bottom: var(--space-sm); }
+.form-group label { display: block; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-text); }
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--color-light-gray);
+    border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 1rem;
+    transition: border-color 0.3s ease; background: var(--color-white);
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none; border-color: var(--color-primary);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.contact-info { display: flex; flex-direction: column; gap: var(--space-md); }
+.info-card {
+    background: var(--color-white); padding: var(--space-md);
+    border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+}
+.info-card h3 {
+    font-size: 1.1rem; color: var(--color-primary); margin-bottom: var(--space-xs);
+    display: flex; align-items: center; gap: var(--space-xs);
+}
+.info-card p { color: var(--color-text-light); }
+.phone-number {
+    font-family: var(--font-heading); font-size: 1.8rem;
+    color: var(--color-highlight); font-weight: 700;
+}
+.map-placeholder {
+    width: 100%; aspect-ratio: 16/10; background: var(--color-light-gray);
+    border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;
+    color: var(--color-text-light); margin-top: var(--space-xs);
+}
+
+/* Contact Form 7 プラグイン用スタイル */
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-form textarea {
+    width: 100%; padding: 0.75rem 1rem; border: 1px solid #e2e8f0;
+    border-radius: 8px; background-color: #fff; font-size: 1rem;
+    box-sizing: border-box; transition: border-color 0.2s;
+}
+.wpcf7-form input:focus,
+.wpcf7-form textarea:focus {
+    outline: none; border-color: var(--color-primary, #6b8e23);
+}
+.wpcf7-form p { margin-bottom: 1rem; }
+
+/* --------------------------------------------------
+ * 11. home.php あしあと日記
+ * -------------------------------------------------- */
+.diary-page-title {
+    padding-top: 120px;
+    padding-bottom: 0;
+    text-align: center !important;
+}
+.diary-page-title .section-title {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block;
+}
+
+/* 紹介エリア */
+.diary-about {
+    padding: 40px 0 60px;
+    background: var(--color-bg, var(--color-cream));
+}
+.diary-about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.diary-about-label {
+    display: block;
+    font-family: var(--font-heading);
+    color: var(--color-secondary, var(--color-primary));
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.diary-about-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+.diary-about-desc {
+    color: var(--color-text);
+    line-height: 1.9;
+}
+.diary-about-image {
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--color-white);
+}
+.diary-about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 記事一覧 */
+.diary-list {
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+.diary-list-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    border-top: 1px solid #eee;
+}
+.diary-list-item {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+}
+.diary-list-item:hover {
+    background: rgba(0,0,0,0.02);
+}
+.diary-list-item:hover .diary-list-title {
+    color: var(--color-secondary, var(--color-primary));
+}
+.diary-list-date {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    font-family: var(--font-heading);
+}
+.diary-list-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin: 0;
+    font-weight: 500;
+}
+.diary-list-arrow {
+    color: var(--color-secondary, var(--color-primary));
+    font-size: 1.2rem;
+}
+
+/* ページネーション */
+.diary-pagination {
+    text-align: center;
+    margin-top: 3rem;
+}
+.diary-pagination .nav-links {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.diary-pagination .page-numbers {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--color-text);
+    border: 1px solid #eee;
+    transition: all 0.2s;
+}
+.diary-pagination .page-numbers.current {
+    background: var(--color-primary);
+    color: #fff;
+    border-color: var(--color-primary);
+}
+.diary-pagination .page-numbers:hover:not(.current) {
+    background: var(--color-bg, var(--color-cream));
+}
+
+/* --------------------------------------------------
+ * 12. single.php 記事詳細
+ * -------------------------------------------------- */
+/* パンくず */
+.breadcrumb-wrap {
+    padding-top: 140px;
+    padding-bottom: 1rem;
+    background: var(--color-bg, var(--color-cream));
+}
+.breadcrumb {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+.breadcrumb a {
+    color: var(--color-text-light);
+    text-decoration: none;
+}
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+.breadcrumb-sep {
+    margin: 0 0.5rem;
+}
+
+/* 記事ヘッダー */
+.diary-single-header {
+    padding-top: 0;
+    padding-bottom: 2rem;
+    text-align: center;
+    background: var(--color-bg, var(--color-cream));
+}
+.diary-single-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+.diary-single-date {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    font-family: var(--font-heading);
+}
+
+/* 記事本文 */
+.diary-single-body {
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+.diary-single-image {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.diary-single-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.diary-single-content {
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.9;
+    color: var(--color-text);
+}
+.diary-single-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* --------------------------------------------------
+ * 13. Footer
+ * -------------------------------------------------- */
+.site-footer {
+    background: var(--color-primary-dark); color: var(--color-white);
+    padding: var(--space-md) 0 var(--space-sm);
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-sm); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-md); margin-bottom: var(--space-md); }
+.footer-brand { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; margin-bottom: var(--space-xs); }
+.footer-nav ul { list-style: none; }
+.footer-nav a { color: rgba(255,255,255,0.8); display: block; padding: 0.25rem 0; }
+.footer-nav a:hover { color: var(--color-white); }
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.2); padding-top: var(--space-sm);
+    text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.6);
+}
+
+.footer-sns { display: flex; gap: 12px; align-items: center; }
+.footer-sns a { color: #ffffff; font-size: 1.3rem; transition: opacity 0.3s; }
+.footer-sns a:hover { opacity: 0.7; }
+
+/* --------------------------------------------------
+ * 14. Media Queries (Responsive & Print)
+ * -------------------------------------------------- */
+@media (max-width: 768px) {
+    .hero-concept { font-size: 2rem; }
+    .about-content, .features-grid, .programs-grid, .contact-grid, .footer-grid, .diary-about-inner { grid-template-columns: 1fr; }
+    .main-nav {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--color-white); box-shadow: var(--shadow-md); padding: var(--space-sm);
+    }
+    .main-nav.active { display: block; }
+    .main-nav ul { flex-direction: column; gap: var(--space-sm); }
+    .menu-toggle { display: block; }
+    .schedule-timeline::before { left: 70px; }
+    .schedule-time { width: 50px; font-size: 0.9rem; }
+    .section-title { font-size: 1.5rem; }
+}
+
+@media print {
+    .site-header, .main-nav, .menu-toggle, .contact-form-wrap, .btn { display: none !important; }
+    .hero { min-height: auto; padding: var(--space-md) 0; }
+    .hero-concept { font-size: 1.8rem; color: var(--color-text) !important; text-shadow: none !important; }
+    body { background: white !important; color: black !important; }
+    .section { padding: var(--space-sm) 0; page-break-inside: avoid; }
+    .feature-card, .program-card { box-shadow: none !important; border: 1px solid #ddd; }
+}
+

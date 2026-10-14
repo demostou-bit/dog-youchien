@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>いぬのようちえん</title>
+	<link>http://example.com</link>
+	<description>Contact Form 7 Export</description>
+	<pubDate>Tue, 25 Aug 2026 10:00:00 +0000</pubDate>
+	<language>ja</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+
+	<item>
+		<title>見学予約</title>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">http://example.com/?post_type=wpcf7_contact_form&#038;p=200</guid>
+		<description></description>
+		<content:encoded><![CDATA[<div class="form-group">
+    <label>お名前 <span style="color: var(--color-highlight);">*</span></label>
+    [text* your-name placeholder "山田 太郎"]
+</div>
+
+<div class="form-group">
+    <label>メールアドレス <span style="color: var(--color-highlight);">*</span></label>
+    [email* your-email placeholder "example@email.com"]
+</div>
+
+<div class="form-group">
+    <label>電話番号</label>
+    [tel your-phone placeholder "03-1234-5678"]
+</div>
+
+<div class="form-group">
+    <label>愛犬の名前・年齢</label>
+    [text dog-info placeholder "ポチ・2歳"]
+</div>
+
+<div class="form-group">
+    <label>メッセージ</label>
+    [textarea your-message placeholder "見学希望日時やご質問など"]
+</div>
+
+<div class="form-group" style="margin-top: var(--space-sm);">
+    [submit class:btn class:btn-primary "送信する 🐾"]
+</div>]]></content:encoded>
+		<wp:post_id>200</wp:post_id>
+		<wp:post_date><![CDATA[2026-08-25 10:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-08-25 10:00:00]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[tour-reservation]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_type><![CDATA[wpcf7_contact_form]]></wp:post_type>
+
+		<!-- メール送信設定のメタデータ -->
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_mail]]></wp:meta_key>
+			<wp:meta_value><![CDATA[a:8:{s:7:"subject";s:39:"[your-subject] 見学予約のお問い合わせ";s:6:"sender";s:41:"あしあとようちえん <[_site_admin_email]>";s:4:"body";s:234:"差出人: [your-name] <[your-email]>
+電話番号: [your-phone]
+愛犬情報: [dog-info]
+
+メッセージ本文:
+[your-message]
+
+-- 
+このメールは あしあとようちえん のお問い合わせフォームから送信されました。";s:11:"recipient";s:19:"[_site_admin_email]";s:18:"additional_headers";s:22:"Reply-To: [your-email]";s:11:"attachments";s:0:"";s:8:"use_html";b:0;s:13:"exclude_blank";b:0;}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+</channel>
+</rss>

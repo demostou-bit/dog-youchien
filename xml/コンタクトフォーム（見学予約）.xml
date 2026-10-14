@@ -1,0 +1,16 @@
+<label> お名前 <span class="required">*</span>
+    [text* your-name placeholder "山田 太郎"] </label>
+
+<label> メールアドレス <span class="required">*</span>
+    [email* your-email placeholder "example@email.com"] </label>
+
+<label> 電話番号
+    [tel your-phone placeholder "03-1234-5678"] </label>
+
+<label> 愛犬の名前・年齢
+    [text dog-info placeholder "ポチ・2歳"] </label>
+
+<label> メッセージ
+    [textarea your-message placeholder "見学希望日時やご質問など"] </label>
+
+[submit class:btn class:btn-primary "送信する 🐾"]

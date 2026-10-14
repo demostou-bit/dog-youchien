@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>Export</title>
+	<link>http://localhost</link>
+	<pubDate>Mon, 24 Aug 2026 00:00:00 +0000</pubDate>
+	<language>ja</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+
+	<!-- 親ページ：年齢別プログラム -->
+	<item>
+		<title>年齢別プログラム</title>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">愛犬のライフステージに合わせた3つのコース</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>「いぬのようちえん」では、パピー期からシニア期まで、それぞれの年齢に適したケアと環境をご用意しています。少人数制だからこそできるきめ細やかな対応で、愛犬がのびのびと過ごせる一日をお約束します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>それぞれのプログラム詳細は、下のカードをクリックしてご覧ください。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<wp:post_id>100</wp:post_id>
+		<wp:post_date><![CDATA[2026-08-24 00:00:00]]></wp:post_date>
+		<wp:post_name><![CDATA[programs]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+	</item>
+
+	<!-- 子ページ1：パピークラス -->
+	<item>
+		<title>パピークラス</title>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<content:encoded><![CDATA[<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">生後3ヶ月〜1歳未満の子犬向けプログラム</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>パピー期は、犬が社会の一員として成長していく上で最も大切な時期です。「いぬのようちえん」のパピークラスでは、社会化・基本的なしつけ・トイレトレーニングを中心に、一人ひとりの成長を丁寧にサポートします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">主なケア内容</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>社会化トレーニング（人・犬との触れ合い）</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>トイレトレーニングのサポート</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>噛み癖・遊び咬みの改善指導</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>適切な運動量と休息のバランス管理</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>基本の「おすわり」「まて」などの基礎トレーニング</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>毎日の「あしあと日記」で成長記録をご報告</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">パピークラスならではの環境</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>免疫力に配慮した清潔な空間で、安全な自然素材の遊具を使った遊びを通じて、好奇心を育みながら安心して過ごせる環境を整えています。他のワンちゃんとの適切な接触機会も提供し、怖がらずに人や犬と接できるよう、自信を育てます。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>月会費：55,000円（税込）</strong></p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<wp:post_id>101</wp:post_id>
+		<wp:post_date><![CDATA[2026-08-24 00:00:00]]></wp:post_date>
+		<wp:post_name><![CDATA[puppy]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_parent>100</wp:post_parent>
+		<wp:menu_order>1</wp:menu_order>
+	</item>
+
+	<!-- 子ページ2：アダルトクラス -->
+	<item>
+		<title>アダルトクラス</title>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">1歳〜7歳の成犬向けプログラム</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>元気いっぱいな成犬期は、運動不足やストレスが問題になりやすい時期です。アダルトクラスでは、十分な運動と遊びを通じてストレスを解消し、社会化を維持・向上させることを目指します。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">主なケア内容</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>庭での自由遊びと運動不足解消</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>他の犬とのグループ遊びによる社会化</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>散歩トレーニング（ヒール・リード歩行）</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>分離不安の予防・改善ケア</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>個性に合わせた遊びと刺激の提供</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>毎日の「あしあと日記」で一日の様子をご報告</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">アダルトクラスならではの環境</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>広々とした自然素材の庭で思いっきり走り回れる空間をご用意。天候に応じて室内での知育玩具やフィットネス的な遊びも行い、毎日が退屈にならないよう配慮しています。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>月会費：55,000円（税込）</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<wp:post_id>102</wp:post_id>
+		<wp:post_date><![CDATA[2026-08-24 00:00:00]]></wp:post_date>
+		<wp:post_name><![CDATA[adult]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_parent>100</wp:post_parent>
+		<wp:menu_order>2</wp:menu_order>
+	</item>
+
+	<!-- 子ページ3：シニアクラス -->
+	<item>
+		<title>シニアクラス</title>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<content:encoded><![CDATA[<!-- wp:heading -->
+<h2 class="wp-block-heading">7歳以上のシニア犬向けプログラム</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>シニア期の愛犬には、無理のない運動と心地よい休息、そして健康状態に配慮したケアが必要です。シニアクラスでは、年齢に応じた優しいケアで、健やかなシニアライフをサポートします。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">主なケア内容</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>無理のない運動（短時間の散の散歩・軽い遊び）</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>関節・筋肉に配慮したリラクゼーション</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>食欲・排泄・元気度の毎日チェック</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>認知症予防のための刺激と遊び</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>他のシニア犬との穏やかな触れ合い</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>毎日の「あしあと日記」で健康状態もご報告</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">シニアクラスならではの環境</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>滑りにくい床材と段差の少ない空間で、関節への負担を軽減。静かで落ち着いた環境で、ストレスなく過ごせるよう配慮しています。必要に応じて、獣医師との連携も可能です。</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>月会費：48,000円（税込）</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<wp:post_id>103</wp:post_id>
+		<wp:post_date><![CDATA[2026-08-24 00:00:00]]></wp:post_date>
+		<wp:post_name><![CDATA[senior]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_parent>100</wp:post_parent>
+		<wp:menu_order>3</wp:menu_order>
+	</item>
+</channel>
+</rss>
